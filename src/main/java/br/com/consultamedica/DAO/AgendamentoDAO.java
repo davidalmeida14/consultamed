@@ -29,12 +29,10 @@ public class AgendamentoDAO {
 		em.close();
 	}
 	
-	@SuppressWarnings("unchecked")
 	public List<Agendamento> listar(){
 		em.getTransaction().begin();
 		Query query = em.createQuery("SELECT A FROM AGENDAMENTOS A");
-		List<Agendamento> agendamentos = (List<Agendamento>) query.getResultList();
-		return agendamentos;
+		return (List<Agendamento>) query.getResultList();
 	}
 
 	public Agendamento buscarAgendamentoPorId(Long id) {

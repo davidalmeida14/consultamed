@@ -1,17 +1,39 @@
 package br.com.consultamedica.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Endereco {
 	
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id;
+	
 	private String logradouro;
+	
 	private String bairro;
+	
 	private String cidade;
+	
 	private String estado;
+	
 	private String cep;
+	
 	private String complemento;
 	
+	@ManyToOne
+	private Pessoa pessoa;
 	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
 	public Long getId() {
 		return id;
 	}

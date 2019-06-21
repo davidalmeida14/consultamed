@@ -1,15 +1,28 @@
 package br.com.consultamedica.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Paciente extends Pessoa {
 	
-	private List<Contato> contatos = new ArrayList<Contato>();
+	@OneToMany
+	private List<Contato> contatos;
+	
+	@ManyToMany
+	private List<Agendamento> agendamento;
+
+
+	public List<Agendamento> getAgendamento() {
+		return agendamento;
+	}
+
+	public void setAgendamento(List<Agendamento> agendamento) {
+		this.agendamento = agendamento;
+	}
 
 	public List<Contato> getContatos() {
 		return contatos;

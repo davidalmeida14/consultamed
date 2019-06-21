@@ -31,7 +31,7 @@ public class AgendamentoDAO {
 	
 	public List<Agendamento> listar(){
 		em.getTransaction().begin();
-		Query query = em.createQuery("SELECT A FROM AGENDAMENTOS A");
+		Query query = em.createQuery("SELECT A FROM AGENDAMENTO A");
 		return (List<Agendamento>) query.getResultList();
 	}
 

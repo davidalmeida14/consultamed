@@ -3,7 +3,6 @@ package br.com.consultamedica.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -12,7 +11,7 @@ public class Paciente extends Pessoa {
 	@OneToMany
 	private List<Contato> contatos;
 	
-	@ManyToMany
+	@OneToMany
 	private List<Agendamento> agendamento;
 
 

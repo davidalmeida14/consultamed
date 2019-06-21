@@ -53,7 +53,6 @@ public class Principal {
 		paciente.setDataNascimento(LocalDate.of(1995, 06, 06));
 		paciente.setEmail("david_almeida_1@hotmail.com");
 		paciente.setContatos(Arrays.asList(contato));
-		
 		pacienteService.salvar(paciente);
 		
 		Endereco endereco = new Endereco();
@@ -78,15 +77,12 @@ public class Principal {
 		agendamento.setData(LocalDateTime.of(2019, 06, 25, 14, 00));
 		agendamento.setStautsConsulta(StatusConsulta.AGENDADO);
 		agendamento.setMedico(medico);
-		agendamento.setPaciente(Arrays.asList(paciente));
+		agendamento.setPaciente(paciente);
 //		
 		agendamentoService.salvar(agendamento);
 		
-		List<Agendamento> agendamentosListados = agendamentoService.listar();
-		agendamentosListados.forEach(e->{
-			System.out.println(e.getMedico().getNome());
-			System.out.println(e.getData());
-		});
+		Agendamento agendamentoBuscado = agendamentoService.buscaPorId(1L);
+		System.out.println(agendamento.getMedico().getNome());
 		paciente.realizaAgendamento(agendamento);
 		
 		

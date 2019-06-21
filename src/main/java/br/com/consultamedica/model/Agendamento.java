@@ -1,7 +1,6 @@
 package br.com.consultamedica.model;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,7 +8,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import br.com.consultamedica.model.enums.StatusConsulta;
@@ -23,8 +22,9 @@ public class Agendamento {
 	
 	private LocalDateTime data;
 	
-	@ManyToMany
-	private List<Paciente> paciente;
+	@ManyToOne
+	@JoinColumn(name="Id_Paciente")
+	private Paciente paciente;
 	
 	@Enumerated(EnumType.STRING)
 	private StatusConsulta stautsConsulta;
@@ -46,10 +46,11 @@ public class Agendamento {
 	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
-	public List<Paciente> getPaciente() {
+	
+	public Paciente getPaciente() {
 		return paciente;
 	}
-	public void setPaciente(List<Paciente> paciente) {
+	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
 	public StatusConsulta getStautsConsulta() {

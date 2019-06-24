@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -23,7 +24,8 @@ public class Contato {
 	@Column
 	private String telefone;
 	
-	@ManyToOne
+	@ManyToOne()
+	@JoinColumn(name = "Id_Paciente")
 	private Paciente paciente;
 	
 	public Paciente getPaciente() {

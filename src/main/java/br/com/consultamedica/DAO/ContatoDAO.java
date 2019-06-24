@@ -44,7 +44,7 @@ public class ContatoDAO {
 	
 	public Contato buscaContatoNome(String nome) {
 		this.factory.getTransaction().begin();
-		Query query = this.factory.createQuery("SELECT C From Contato Where C.Nome = :id");
+		Query query = this.factory.createQuery("SELECT C From Contato Where C.Nome = :nome");
 		query.setParameter("nome", nome);
 		Contato contato = (Contato) query.getSingleResult();
 		return contato;

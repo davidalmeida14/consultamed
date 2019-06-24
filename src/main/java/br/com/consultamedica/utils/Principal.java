@@ -3,7 +3,6 @@ package br.com.consultamedica.utils;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.List;
 
 import br.com.consultamedica.model.Agendamento;
 import br.com.consultamedica.model.Contato;

@@ -32,6 +32,7 @@ public class Agendamento {
 	private String descricaoCancelamento;
 	
 	@ManyToOne
+	@JoinColumn(name = "Id_Medico")
 	private Medico medico;
 	
 	public Long getId() {

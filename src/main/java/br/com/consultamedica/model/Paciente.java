@@ -8,10 +8,10 @@ import javax.persistence.OneToMany;
 @Entity
 public class Paciente extends Pessoa {
 	
-	@OneToMany
+	@OneToMany(mappedBy = "paciente")
 	private List<Contato> contatos;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "paciente")
 	private List<Agendamento> agendamento;
 
 

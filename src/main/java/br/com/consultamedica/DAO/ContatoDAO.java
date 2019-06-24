@@ -26,14 +26,12 @@ public class ContatoDAO {
 		factory.getTransaction().begin();
 		factory.persist(contato);
 		factory.getTransaction().commit();
-		factory.close();
 	}
 	
 	public void remover(Long idContato) {
 		this.factory.getTransaction().begin();
 		this.factory.remove(this.buscaContatoId(idContato));
 		this.factory.getTransaction().commit();
-		this.factory.close();
 	}
 	
 	public Contato buscaContatoId(Long id) {
@@ -63,7 +61,7 @@ public class ContatoDAO {
 		this.factory.getTransaction().begin();
 		this.factory.merge(contato);
 		this.factory.getTransaction().commit();
-		this.factory.close();
+		
 	}
 	
 	@SuppressWarnings("unchecked")

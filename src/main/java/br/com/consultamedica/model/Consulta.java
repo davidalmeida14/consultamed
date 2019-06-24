@@ -1,9 +1,23 @@
 package br.com.consultamedica.model;
 
-public class Consulta {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
+@Entity(name = "Consulta")
+public class Consulta {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@ManyToOne
 	private Medico medico;
+	
+	@OneToOne
 	private Agendamento agendamento;
 	
 	public Long getId() {

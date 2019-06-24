@@ -27,7 +27,7 @@ public abstract class Pessoa {
 	
 	private String email;
 	
-	@OneToMany
+	@OneToMany()
 	private List<Endereco> endereco;
 	
 	private String sexo;

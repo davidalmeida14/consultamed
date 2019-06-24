@@ -18,14 +18,12 @@ public class EnderecoDAO {
 		factory.getTransaction().begin();
 		factory.persist(endereco);
 		factory.getTransaction().commit();
-		factory.close();
 	}
 	
 	public void remover(Long id) {
 		this.factory.getTransaction().begin();
 		this.factory.remove(this.buscarPorId(id));
 		this.factory.getTransaction().commit();
-		this.factory.close();
 	}
 	
 	public Endereco buscarPorId(Long id) {
@@ -38,7 +36,6 @@ public class EnderecoDAO {
 		this.factory.getTransaction().begin();
 		this.factory.merge(endereco);
 		this.factory.getTransaction().commit();
-		this.factory.close();
 	}
 	
 	@SuppressWarnings("unchecked")

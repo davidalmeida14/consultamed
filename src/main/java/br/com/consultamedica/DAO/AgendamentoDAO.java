@@ -16,22 +16,23 @@ public class AgendamentoDAO {
 	
 	
 	public void salvar(Agendamento agendamento) {
-		em.getTransaction().begin();
+		if(!em.getTransaction().isActive()) {
+			em.getTransaction().begin();
+		}
 		em.persist(agendamento);
 		em.getTransaction().commit();
-		em.close();
 	}
 	
 	public void remover(Long id) {
 		em.getTransaction().begin();
 		em.remove(this.buscarAgendamentoPorId(id));
 		em.getTransaction().commit();
-		em.close();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Agendamento> listar(){
 		em.getTransaction().begin();
-		Query query = em.createQuery("SELECT A FROM AGENDAMENTO A");
+		Query query = em.createQuery("SELECT A FROM Agendamento A");
 		return (List<Agendamento>) query.getResultList();
 	}
 
@@ -45,6 +46,5 @@ public class AgendamentoDAO {
 		em.getTransaction().begin();
 		em.merge(agendamneto);
 		em.getTransaction().commit();
-		em.close();
 	}
 }

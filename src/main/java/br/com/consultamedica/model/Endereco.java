@@ -15,6 +15,8 @@ public class Endereco {
 	
 	private String logradouro;
 	
+	private String numero;
+	
 	private String bairro;
 	
 	private String cidade;
@@ -25,7 +27,8 @@ public class Endereco {
 	
 	private String complemento;
 	
-	@ManyToOne
+	
+	@ManyToOne()
 	private Pessoa pessoa;
 	
 	public Pessoa getPessoa() {
@@ -39,6 +42,13 @@ public class Endereco {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 	public String getLogradouro() {
 		return logradouro;

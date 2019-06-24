@@ -20,7 +20,7 @@ public class Agendamento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private LocalDateTime data;
+	private LocalDateTime dataAgendamento;
 	
 	@ManyToOne
 	@JoinColumn(name="Id_Paciente")
@@ -31,9 +31,12 @@ public class Agendamento {
 	
 	private String descricaoCancelamento;
 	
-	@ManyToOne
+	private LocalDateTime dataCancelamento;
+	
+	@ManyToOne()
 	@JoinColumn(name = "Id_Medico")
 	private Medico medico;
+	
 	
 	public Long getId() {
 		return id;
@@ -41,13 +44,19 @@ public class Agendamento {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public LocalDateTime getData() {
-		return data;
-	}
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
 	
+	public LocalDateTime getDataCancelamento() {
+		return dataCancelamento;
+	}
+	public void setDataCancelamento(LocalDateTime dataCancelamento) {
+		this.dataCancelamento = dataCancelamento;
+	}
+	public LocalDateTime getDataAgendamento() {
+		return dataAgendamento;
+	}
+	public void setDataAgendamento(LocalDateTime dataAgendamento) {
+		this.dataAgendamento = dataAgendamento;
+	}
 	public Paciente getPaciente() {
 		return paciente;
 	}

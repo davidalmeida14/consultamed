@@ -136,6 +136,17 @@ public class Principal {
 
 		System.out.println(consultaPeriodo.size());
 		
+		System.out.println("Cancelando consulta ...");
+		System.out.println("Buscando consulta de Id 1 ...");
+		
+		consultaService = null;
+		consultaService = new ConsultaService();
+		Consulta consultaBuscada = consultaService.buscarPorId(1L);
+		
+		medicoService.cancelarConsulta(consultaBuscada, "Viagem para congresso");
+		
+		
+		
 		
 
 		

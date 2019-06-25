@@ -29,4 +29,8 @@ public class ConsultaService {
 		return this.dao.consultaPorPeriodo(dataInicio, dataFim);
 	}
 	
+	public Consulta buscarPorId(Long id) {
+		return this.dao.buscarPorId(id);
+	}
+	
 }

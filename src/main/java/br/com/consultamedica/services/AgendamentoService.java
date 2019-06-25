@@ -17,8 +17,11 @@ public class AgendamentoService implements IGerenciador<Agendamento> {
 
 	@Override
 	public void salvar(Agendamento agendamento) {
+		
 		List<Agendamento> allAgendamentos = this.listar();
+		
 		this.validarAgendamento(allAgendamentos, agendamento);
+		
 		this.dao.salvar(agendamento);
 	}
 
@@ -84,4 +87,10 @@ public class AgendamentoService implements IGerenciador<Agendamento> {
 		}
 	}
 
+	public void closeConnection() {
+		this.dao.closeTransaction();
+	}
+	public void openTransaction() {
+		this.dao.openTransaction();
+	}
 }

@@ -43,8 +43,18 @@ public class AgendamentoDAO {
 	}
 	
 	public void editarAgendamento(Agendamento agendamneto) {
-		em.getTransaction().begin();
+		if(!this.em.getTransaction().isActive()) {
+			em.getTransaction().begin();
+		}
 		em.merge(agendamneto);
 		em.getTransaction().commit();
+	}
+	
+	public void closeTransaction() {
+		this.em.close();
+	}
+	
+	public void openTransaction() {
+		this.em.getTransaction().begin();
 	}
 }

@@ -27,6 +27,7 @@ import br.com.consultamedica.services.PacienteService;
 
 public class Principal {
 	
+
 	public static void main(String[] args) {
 		
 		ContatoService service = new ContatoService();

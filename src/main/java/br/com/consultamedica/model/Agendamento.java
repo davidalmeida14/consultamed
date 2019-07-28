@@ -10,10 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import br.com.consultamedica.model.enums.StatusConsulta;
 
 @Entity
+@Table(name = "TB_AGENDAMENTO")
 public class Agendamento {
 	
 	@Id
